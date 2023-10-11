@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50789303682",
+    "project_id": "acxiom-ccfdf",
+    "storage_bucket": "acxiom-ccfdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50789303682:android:d584b4143f93f76e377b9b",
+        "android_client_info": {
+          "package_name": "com.example.acxiom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9vl5g280kCjeTIPRrxa7l0_mCBdcjNMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

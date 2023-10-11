@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard"
+    android:orientation="vertical">
+<Button
+    android:id="@+id/set_reminder"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginHorizontal="40dp"
+    android:layout_marginTop="20dp"
+    android:text="set reminder"
+    />
+    <Button
+        android:id="@+id/modify_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="modify reminder"
+        />
+    <Button
+        android:id="@+id/disable_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="disable reminder"
+        />
+    <Button
+        android:id="@+id/delete_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="delete reminder"
+        />
+    <Button
+        android:id="@+id/Enable_Reminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Enable Reminder"
+        />
+    <Button
+        android:id="@+id/view_your_Reminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="View Your reminder"
+        />
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Logout"
+        />
+
+</LinearLayout>
