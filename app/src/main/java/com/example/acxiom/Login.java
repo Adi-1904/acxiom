@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,21 +49,34 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 email=et_email.getText().toString();
                 password=et_password.getText().toString();
-                auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Intent intent = new Intent(Login.this, Dashboard.class);
-                            intent.putExtra("email", email);
-                            startActivity(intent);
-                        } else if (task.isCanceled())
-                            Toast.makeText(Login.this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if(email.isEmpty())
+                    et_email.setError("check email");
+                else if (password.isEmpty()) {
+                    et_password.setError("check Password");
+                }
+                else {
+                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent intent = new Intent(Login.this, Dashboard.class);
+                                intent.putExtra("email", email);
+                                startActivity(intent);
+                            } else if (task.isCanceled())
+                                Toast.makeText(Login.this, "Failed", Toast.LENGTH_SHORT).show();
 
+                        }
+                    });
+                }
             }
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
     }
 }

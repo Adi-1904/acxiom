@@ -42,7 +42,7 @@ public class register extends AppCompatActivity {
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(register.this,register.class);
+                Intent intent=new Intent(register.this,Login.class);
                 startActivity(intent);
 
             }
@@ -58,6 +58,10 @@ public class register extends AppCompatActivity {
                         String userid=auth.getCurrentUser().getUid();
                         Map<String,Object> details=new HashMap<>();
                         details.put("email",email);
+                        if(task.isSuccessful())
+                        {
+
+
                         data.collection("Reminder").document(userid).set(details).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -66,6 +70,7 @@ public class register extends AppCompatActivity {
                                startActivity(intent);
                             }
                         });
+                        }
                     }
                 });
 

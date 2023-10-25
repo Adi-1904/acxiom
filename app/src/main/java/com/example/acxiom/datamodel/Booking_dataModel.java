@@ -1,4 +1,4 @@
-package com.example.acxiom;
+package com.example.acxiom.datamodel;
 
 public class Booking_dataModel {
     String date,reason,description,email,sms,topic,contactno;

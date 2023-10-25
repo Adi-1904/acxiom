@@ -10,7 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.acxiom.adapter.TicketBook_Adapter;
+import com.example.acxiom.datamodel.Booking_dataModel;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;

@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,8 +28,8 @@ import java.util.Map;
 public class set_reminder extends AppCompatActivity {
     private FirebaseFirestore firestore;
     private int year, month, day; // Declare these variables
-
-    private TextView dateEditText,date;
+    RelativeLayout dateEditText;
+    private TextView date;
     private Spinner subjectSpinner;
     private EditText descriptionEditText;
     private EditText emailEditText;
@@ -71,26 +73,40 @@ public class set_reminder extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                            description=descriptionEditText.getText().toString();
-                            reason=subjectSpinner.getSelectedItem().toString();
-                            email=emailEditText.getText().toString();
-                            contactno=contactEditText.getText().toString();
-                            data.put("date",strdate);
-                            data.put("reason",reason);
-                            data.put("description",description);
-                            data.put("email",email);
-                            data.put("contactno",contactno);
 
-                        DocumentReference documentRef = firestore.collection("reminder").document(strdate);
-                        documentRef.set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Intent intent = new Intent(set_reminder.this, Dashboard.class);
-                                startActivity(intent);
-                            }
+                description = descriptionEditText.getText().toString();
+                reason = subjectSpinner.getSelectedItem().toString();
+                email = emailEditText.getText().toString();
+                contactno = contactEditText.getText().toString();
+                if (description != null && reason != null && email != null && contactno != null) {
+                    data.put("date", strdate);
+                    data.put("reason", reason);
+                    data.put("description", description);
+                    data.put("email", email);
+                    data.put("contactno", contactno);
+                    data.put("enable","1");
 
-                });
+                    DocumentReference documentRef = firestore.collection("reminder").document(strdate);
+                    documentRef.set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Intent intent = new Intent(set_reminder.this, Dashboard.class);
+                            startActivity(intent);
+                        }
+
+                    });
+                    DocumentReference doc=firestore.collection("enable").document(strdate);
+                    doc.set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(set_reminder.this, "Reminder set", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else
+                    Toast.makeText(set_reminder.this, "Fill All data", Toast.LENGTH_SHORT).show();
             }
+
         });
 
     }

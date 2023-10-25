@@ -1,4 +1,4 @@
-package com.example.acxiom;
+package com.example.acxiom.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.acxiom.datamodel.Booking_dataModel;
+import com.example.acxiom.R;
+import com.example.acxiom.viewHolder.TicketViewholder;
 
 import java.util.ArrayList;
 
@@ -32,9 +35,8 @@ public class TicketBook_Adapter extends RecyclerView.Adapter<TicketViewholder> {
         holder.date.setText(String.valueOf(userArraylist.get(position).getDate()));
         holder.description.setText(String.valueOf(userArraylist.get(position).getDescription()));
         holder.email.setText(String.valueOf(userArraylist.get(position).getEmail()));
-//        holder.topic.setText(String.valueOf(userArraylist.get(position).getContactno()));
-//        holder.sms.setText(String.valueOf(userArraylist.get(position).getSms()));
-
+        holder.topic.setText(String.valueOf(userArraylist.get(position).getReason()));
+        holder.sms.setText(String.valueOf(userArraylist.get(position).getContactno()));
 
 
 //        holder.btn_cancel.setOnClickListener(new View.OnClickListener() {

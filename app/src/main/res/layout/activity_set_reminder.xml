@@ -9,13 +9,29 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     >
-    <TextView
+    <RelativeLayout
         android:id="@+id/textViewSelectDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        >
+    <TextView
+        android:id="@+id/textViewSelectDate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Select a Date:"
-        android:layout_marginTop="16dp"/>
+        android:layout_centerVertical="true"
+        />
+    <ImageView
+        android:id="@+id/calendarIcon"
+        android:layout_width="20dp"
+        android:layout_height="48dp"
+        android:src="@drawable/et_calender"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/textViewSelectDate1"/>
+    </RelativeLayout>
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
@@ -24,13 +40,7 @@
         android:layout_below="@+id/textViewSelectDate"
         android:layout_marginTop="16dp"/>
 
-    <ImageView
-        android:id="@+id/calendarIcon"
-        android:layout_width="20dp"
-        android:layout_height="48dp"
-        android:src="@drawable/et_calender"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/textViewSelectDate"/>
+
 
     <!-- Subject Section -->
     <TextView
